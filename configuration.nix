@@ -46,8 +46,8 @@ services.desktopManager.plasma6.enable = true;
     variant = "";
   };
 
-# Enable ASUS services
-services.asusd.enable = true;
+  # Enable ASUS services
+  services.asusd.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -98,11 +98,11 @@ services.asusd.enable = true;
   neovim #editor 
   kitty
   wofi
-  zoxide
   tmux
   fastfetch
   waybar
   hyprpaper
+  hyprshot
   ripgrep
   fzf
   wl-clipboard
@@ -117,21 +117,6 @@ services.asusd.enable = true;
 fonts.packages = with pkgs; [
   (nerdfonts.override { fonts = [ "Hack" "CascadiaCode" ]; })
 ];  
-
-  programs.bash = {
-    shellAliases = {
-    sudo = "sudo ";
-      cls = "clear";
-      vim = "nvim";
-      vi = "nvim";
-      nano = "nvim";
-      code = "nvim";
-    };
-    interactiveShellInit = ''
-      set -o vi
-      eval "$(zoxide init bash)"
-    '';
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

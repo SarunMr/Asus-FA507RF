@@ -1,20 +1,24 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "sarun";
-  home.homeDirectory = "/home/sarun";
-  home.stateVersion = "24.05"; # Please read the comment before changing.
-
-  home.packages = [
+  imports = [
+    ./shells/bash.nix  # Correct relative path
+    ./apps/nixvim
   ];
 
-  home.file = {
-  };
+  home.username = "sarun";
+  home.homeDirectory = "/home/sarun";
+  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.enableNixpkgsReleaseCheck = false;
+  home.packages = with pkgs; [ 
+	zoxide
 
-  home.sessionVariables = {
-  };
+  ];
+
+  home.file = { };
+
+  home.sessionVariables = { };
 
   programs.home-manager.enable = true;
 }
+

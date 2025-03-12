@@ -8,9 +8,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nixvim, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -20,13 +23,14 @@
 		nixos = lib.nixosSystem{
 			inherit system;	
         		modules = [ ./configuration.nix ];
-		}
-	};
-      homeConfigurations."sarun" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [ ./home.nix ];
-
+			};
+		};
+        homeConfigurations."sarun" = home-manager.lib.homeManagerConfiguration {
+        	inherit pkgs;
+                modules = [ 
+			./home.nix 
+			nixvim.homeManagerModules.nixvim
+		];
       };
     };
 }
