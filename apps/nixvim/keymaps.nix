@@ -25,6 +25,10 @@
       { mode = "n"; key = "<leader>q"; action = ":q<CR>"; }
       { mode = "n"; key = "<leader>c"; action = ":bd<CR>"; }
 
+    { mode = "n"; key = "<leader>y"; action = "\"+y"; }
+    { mode = "v"; key = "<leader>y"; action = "\"+y"; }
+    { mode = "n"; key = "<leader>yy"; action = "\"+yy"; }
+    { mode = "n"; key = "<leader>xx"; action = ":q!<CR>"; }
       # Visual mode keybindings
       { mode = "v"; key = "<"; action = "<gv"; }
       { mode = "v"; key = ">"; action = ">gv"; }
