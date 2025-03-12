@@ -1,11 +1,9 @@
-{...}
+{...}:
 
 {
   programs.nixvim = {
-    globals.mapleader = " ";
-    globals.maplocalleader = ",";
 
-    options = {
+    opts = {
       # Line numbers
       number = true;
       relativenumber = true;
@@ -45,5 +43,10 @@
       hidden = true;
       mouse = "a";
     };
+
+    extraConfigLua = ''
+      vim.g.mapleader = " "
+      vim.g.maplocalleader = ","
+    '';
   };
 }

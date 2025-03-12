@@ -1,54 +1,42 @@
-{...}
+{...}:
 
 {
-  programs.nixvim.maps = {
-    normal = {
-      # Basic navigation
-      "<C-h>" = { action = "<C-w>h"; };
-      "<C-j>" = { action = "<C-w>j"; };
-      "<C-k>" = { action = "<C-w>k"; };
-      "<C-l>" = { action = "<C-w>l"; };
+  programs.nixvim = {
+    keymaps = [
+      # Normal mode keybindings
+      { mode = "n"; key = "<C-h>"; action = "<C-w>h"; }
+      { mode = "n"; key = "<C-j>"; action = "<C-w>j"; }
+      { mode = "n"; key = "<C-k>"; action = "<C-w>k"; }
+      { mode = "n"; key = "<C-l>"; action = "<C-w>l"; }
 
-      # Resize windows
-      "<C-Up>" = { action = ":resize -2<CR>"; };
-      "<C-Down>" = { action = ":resize +2<CR>"; };
-      "<C-Left>" = { action = ":vertical resize -2<CR>"; };
-      "<C-Right>" = { action = ":vertical resize +2<CR>"; };
+      { mode = "n"; key = "<C-Up>"; action = ":resize -2<CR>"; }
+      { mode = "n"; key = "<C-Down>"; action = ":resize +2<CR>"; }
+      { mode = "n"; key = "<C-Left>"; action = ":vertical resize -2<CR>"; }
+      { mode = "n"; key = "<C-Right>"; action = ":vertical resize +2<CR>"; }
 
-      # Move text up and down
-      "<A-j>" = { action = ":m .+1<CR>=="; };
-      "<A-k>" = { action = ":m .-2<CR>=="; };
+      { mode = "n"; key = "<A-j>"; action = ":m .+1<CR>=="; }
+      { mode = "n"; key = "<A-k>"; action = ":m .-2<CR>=="; }
 
-      # Buffer navigation
-      "<S-l>" = { action = ":bnext<CR>"; };
-      "<S-h>" = { action = ":bprevious<CR>"; };
+      { mode = "n"; key = "<S-l>"; action = ":bnext<CR>"; }
+      { mode = "n"; key = "<S-h>"; action = ":bprevious<CR>"; }
 
-      # Clear search highlighting
-      "<leader>h" = { action = ":nohlsearch<CR>"; };
+      { mode = "n"; key = "<leader>h"; action = ":nohlsearch<CR>"; }
+      { mode = "n"; key = "<leader>w"; action = ":w<CR>"; }
+      { mode = "n"; key = "<leader>q"; action = ":q<CR>"; }
+      { mode = "n"; key = "<leader>c"; action = ":bd<CR>"; }
 
-      # Save file
-      "<leader>w" = { action = ":w<CR>"; };
+      # Visual mode keybindings
+      { mode = "v"; key = "<"; action = "<gv"; }
+      { mode = "v"; key = ">"; action = ">gv"; }
+      { mode = "v"; key = "<A-j>"; action = ":m .+1<CR>=="; }
+      { mode = "v"; key = "<A-k>"; action = ":m .-2<CR>=="; }
 
-      # Quit
-      "<leader>q" = { action = ":q<CR>"; };
-      
-      # Close buffer
-      "<leader>c" = { action = ":bd<CR>"; };
-    };
+      # Terminal mode keybindings
+      { mode = "t"; key = "<Esc>"; action = "<C-\\><C-n>"; }
 
-    visual = {
-      # Stay in indent mode when changing indentation
-      "<" = { action = "<gv"; };
-      ">" = { action = ">gv"; };
-
-      # Move text up and down
-      "<A-j>" = { action = ":m .+1<CR>=="; };
-      "<A-k>" = { action = ":m .-2<CR>=="; };
-    };
-
-    terminal = {
-      # Exit terminal mode
-      "<Esc>" = { action = "<C-\\><C-n>"; };
-    };
+      # Additional keybindings
+      { key = ";"; action = ":"; }
+      { mode = "n"; key = "<leader>m"; options.silent = true; action = "<cmd>!make<CR>"; }
+    ];
   };
 }
