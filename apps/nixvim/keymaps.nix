@@ -3,7 +3,7 @@
 {
   programs.nixvim = {
     keymaps = [
-      # Normal mode keybindings
+      #Normal mode keybindings
       { mode = "n"; key = "<C-h>"; action = "<C-w>h"; }
       { mode = "n"; key = "<C-j>"; action = "<C-w>j"; }
       { mode = "n"; key = "<C-k>"; action = "<C-w>k"; }
@@ -28,7 +28,7 @@
     { mode = "n"; key = "<leader>y"; action = "\"+y"; }
     { mode = "v"; key = "<leader>y"; action = "\"+y"; }
     { mode = "n"; key = "<leader>yy"; action = "\"+yy"; }
-    { mode = "n"; key = "<leader>xx"; action = ":q!<CR>"; }
+    { mode = "n"; key = "<leader>qq"; action = ":q!<CR>"; }
       # Visual mode keybindings
       { mode = "v"; key = "<"; action = "<gv"; }
       { mode = "v"; key = ">"; action = ">gv"; }
@@ -39,7 +39,6 @@
       { mode = "t"; key = "<Esc>"; action = "<C-\\><C-n>"; }
 
       # Additional keybindings
-      { key = ";"; action = ":"; }
       { mode = "n"; key = "<leader>m"; options.silent = true; action = "<cmd>!make<CR>"; }
     ];
   };

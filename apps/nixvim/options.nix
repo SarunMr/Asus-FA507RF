@@ -1,7 +1,11 @@
-{...}:
+{config,lib,...}:
 
-{
+{  
   programs.nixvim = {
+    globals ={
+            mapleader = " ";     # Set global leader to space
+            maplocalleader = " ";
+    };
 
     opts = {
       # Line numbers
@@ -37,16 +41,15 @@
       swapfile = false;
       backup = false;
       undofile = true;
-      undodir = "~/.vim/undodir";
-
+      undodir = "${config.home.homeDirectory}/.local/nvim/undodir";
       # Misc
       hidden = true;
       mouse = "a";
+      clipboard = "unnamedplus";
     };
-
-    extraConfigLua = ''
-      vim.g.mapleader = " "
-      vim.g.maplocalleader = ","
-    '';
   };
+  home.activation.createUndoDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p "${config.home.homeDirectory}/.local/nvim/undodir"
+    echo "Undo directory: ${config.home.homeDirectory}/.local/nvim/undodir"
+  '';
 }
