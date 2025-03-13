@@ -1,6 +1,6 @@
 {...}:
 {
-  plugins.nixvim ={
+  programs.nixvim ={
     plugins.treesitter ={
       enable = true;
       settings = {
@@ -14,8 +14,8 @@
             "clojure"
             "css"
             "dart"
-            "elixer"
-            "erland"
+            "elixir"
+            "erlang"
             "lua"
             "fish"
             "html"
@@ -51,7 +51,7 @@ incremental_selection = {
   keymaps = {
     init_selection = null;  # Disable
     node_incremental = null;  # Disable
-    node_decremental = null;  # Disable
+    ncde_decrementcl = null;  # Disable
     scope_incremental = "grc";  # Keep
     };
   };
