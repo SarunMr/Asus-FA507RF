@@ -6,6 +6,7 @@
     ./keymaps.nix
     ./colorschemes.nix
     ./plugins
+    ./lsp_plugins
   ];
 
   programs.nixvim = {

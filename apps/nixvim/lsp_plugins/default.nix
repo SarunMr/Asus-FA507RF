@@ -1,0 +1,8 @@
+{...}:
+
+{
+  imports = [
+      ./nvim-treesitter.nix   
+  ];
+}
+
