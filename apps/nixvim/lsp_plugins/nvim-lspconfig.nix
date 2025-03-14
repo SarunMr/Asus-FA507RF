@@ -9,6 +9,7 @@
           pyright.enable=true;
           nixd.enable=true;
           bashls.enable=true;
+          clangd.enable=true;
           
           #Web Devlopment
           html.enable = true;
