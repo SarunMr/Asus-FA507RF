@@ -3,8 +3,7 @@
 {
   imports = [
     ./shells/bash.nix  # Correct relative path
-    ./apps/nixvim
-    ./apps/zed-editor
+    ./apps
   ];
 
   home.username = "sarun";
