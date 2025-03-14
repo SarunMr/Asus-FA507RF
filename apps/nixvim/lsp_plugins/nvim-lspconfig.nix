@@ -16,7 +16,6 @@
           ts_ls.enable = true;
           eslint.enable = true;
       };
-    };
     keymaps.lspBuf = {
         "gd" = "definition";
         "gD" = "references";
@@ -24,5 +23,6 @@
         "gi" = "implementation";
         "K" = "hover";
       };
+    };
   };
 }
