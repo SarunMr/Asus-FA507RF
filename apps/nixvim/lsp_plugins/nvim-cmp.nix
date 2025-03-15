@@ -4,45 +4,33 @@
       #dependencies
       luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
-      cmp-luasnip.enable = true;
+      cmp_luasnip.enable = true;
       cmp-path.enable = true;
       cmp-buffer.enable = true;
+      friendly-snippets.enable = true;
 
       cmp = {
         enable = true;
         settings = {
-          snippets.exapand = ''
+          snippet.expand = ''
             function(args)
               require('luasnip').lsp_expand(args.body)
             end
           '';
           sources = [
-            {
-              name = "nvim_lsp";
-              priority = 1000;
-            }
-            {
-              name = "luasnip";
-              priority = 750;
-            }
-            {
-              name = "buffer";
-              priority = 500;
-            }
-            {
-              name = "path";
-              priority = 250;
-            }
+            { name = "luasnip"; }
+            { name = "nvim_lsp"; }
+            { name = "buffer"; }
+            { name = "path"; }
           ];
           mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-e>" = "cmp.mapping.close()";
+            "<C-e>" = "cmp.mapping.abort()";
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<S-Tab>" =
-              "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<S-Tab>" = "cmp.mapping.select_prev_item()";
+            "<Tab>" = "cmp.mapping.select_next_item()";
           };
           formatting = {
             format = ''
@@ -66,22 +54,8 @@
               end
             '';
           };
-
         };
       };
     };
-    extraConfigLua = ''
-      -- Extra LSP configurations if needed
-      local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-      -- Enhancing LSP setup
-      vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          local bufnr = args.buf
-          
-          -- Enable completion triggered by <c-x><c-o>
-          vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-    '';
   };
 }
