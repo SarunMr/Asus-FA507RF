@@ -4,10 +4,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -33,12 +32,10 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-# In your configuration.nix
+  # In your configuration.nix
 
-services.displayManager.sddm = {
-  enable = true;
-};
-services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = { enable = true; };
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -75,12 +72,13 @@ services.desktopManager.plasma6.enable = true;
     isNormalUser = true;
     description = "Sarun";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        kdePackages.kate
+        #  thunderbird
+      ];
   };
-#Nix Options
+  #Nix Options
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.git.enable = true;
@@ -88,35 +86,32 @@ services.desktopManager.plasma6.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   #Allow experimental features for nix command use for features like flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  neovim #editor 
-  kitty
-  wofi
-  tmux
-  fastfetch
-  waybar
-  hyprpaper
-  hyprshot
-  ripgrep
-  fzf
-  wl-clipboard
-  home-manager
-  brave
-  jdk23	#java
-  gcc14 #c c++ 
-  asusctl
-  vlc
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    neovim # editor
+    kitty
+    wofi
+    tmux
+    fastfetch
+    waybar
+    hyprpaper
+    hyprshot
+    wl-clipboard
+    home-manager
+    brave
+    jdk23 # java
+    gcc14 # c c++
+    asusctl
+    vlc
   ];
 
-fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "Hack" "CascadiaCode" ]; })
-];  
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "Hack" "CascadiaCode" ]; }) ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -146,6 +141,3 @@ fonts.packages = with pkgs; [
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-
-
-

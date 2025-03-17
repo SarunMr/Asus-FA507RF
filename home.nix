@@ -1,19 +1,13 @@
-{  pkgs, ... }:
+{ ... }:
 
 {
-  imports = [
-    ./shells/bash.nix  # Correct relative path
-    ./apps
-  ];
+  imports = [ ./shells ./apps ];
 
   home.username = "sarun";
   home.homeDirectory = "/home/sarun";
   home.stateVersion = "25.05"; # Please read the comment before changing.
   home.enableNixpkgsReleaseCheck = false;
-  home.packages = with pkgs; [ 
-	zoxide
-
-  ];
+  home.packages = [ ];
 
   home.file = { };
 
@@ -21,4 +15,3 @@
 
   programs.home-manager.enable = true;
 }
-
