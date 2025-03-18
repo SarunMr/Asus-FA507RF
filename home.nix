@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  imports = [ ./shells ./apps ];
+  imports = [ ./shells ./apps ./users ];
 
   home.username = "sarun";
   home.homeDirectory = "/home/sarun";

@@ -7,7 +7,7 @@ let
     vi = "nvim";
     nano = "nvim";
     code = "nvim";
-    hm = "home-manager";
+    hm = "home-manager ";
 
   };
 in {

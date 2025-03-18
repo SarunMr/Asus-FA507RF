@@ -9,5 +9,6 @@
     ./nvim-ts-autotag.nix
     ./nvim-toggleterm.nix
     ./whick-key.nix
+    ./telescope.nix
   ];
 }
