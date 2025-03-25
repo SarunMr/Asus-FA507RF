@@ -11,5 +11,6 @@
     ./whick-key.nix
     ./telescope.nix
     ./vim-tmux-navigator.nix
+    ./indent-blankline.nix
   ];
 }

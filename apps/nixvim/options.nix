@@ -53,7 +53,7 @@
         pattern = "*",  -- Apply to all buffers
         callback = function()
           -- Only save if the buffer is modified and has a filename
-          if vim.bo.modified and vim.fn.expand('%') ~= '''' then
+          if vim.bo.modified and vim.fn.expand('%') ~= "" then
             vim.cmd('silent! write')
           end
         end
