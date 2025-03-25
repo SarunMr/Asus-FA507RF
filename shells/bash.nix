@@ -16,8 +16,12 @@ in {
     enableCompletion = true;
     shellAliases = myalias;
     initExtra = ''
-          	set -o vi
-      	eval "$(zoxide init bash)"	
+            # Conditional guard for Bash-only features
+              eval "$(zoxide init bash)"  
+      if [ -n "$BASH_VERSION" ]; then
+          shopt -s progcomp
+          set -o vi
+      fi
     '';
   };
   home.sessionVariables = {

@@ -96,7 +96,6 @@
     neovim # editor
     kitty
     wofi
-    tmux
     fastfetch
     waybar
     hyprpaper
