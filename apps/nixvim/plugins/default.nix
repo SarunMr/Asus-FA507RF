@@ -10,5 +10,6 @@
     ./nvim-toggleterm.nix
     ./whick-key.nix
     ./telescope.nix
+    ./vim-tmux-navigator.nix
   ];
 }

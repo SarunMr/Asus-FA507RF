@@ -1,10 +1,10 @@
-{config,lib,...}:
+{ config, lib, ... }:
 
-{  
+{
   programs.nixvim = {
-    globals ={
-            mapleader = " ";     # Set global leader to space
-            maplocalleader = " ";
+    globals = {
+      mapleader = " "; # Set global leader to space
+      maplocalleader = " ";
     };
 
     opts = {
@@ -47,9 +47,17 @@
       mouse = "a";
       clipboard = "unnamedplus";
     };
+    #auto save on FocusLost
+    extraConfigLua = ''
+      vim.api.nvim_create_autocmd({"FocusLost", "WinLeave"}, {
+        pattern = "*",  -- Apply to all buffers
+        callback = function()
+          -- Only save if the buffer is modified and has a filename
+          if vim.bo.modified and vim.fn.expand('%') ~= '''' then
+            vim.cmd('silent! write')
+          end
+        end
+      })
+    '';
   };
-  home.activation.createUndoDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    mkdir -p "${config.home.homeDirectory}/.local/nvim/undodir"
-    echo "Undo directory: ${config.home.homeDirectory}/.local/nvim/undodir"
-  '';
 }
