@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   programs.starship = {
     enable = true;
@@ -23,8 +21,8 @@
       # Username
       username = {
         format = "[$user]($style)";
-        style_user = "bold red";
-        style_root = "bold red";
+        style_user = "bold green";
+        style_root = "bold green";
         show_always = true;
       };
       # Hostname
@@ -88,7 +86,7 @@
       };
       # Time
       time = {
-        format = " 🕙 $time($style)";
+        format = "$time($style)";
         time_format = "%I:%M %p";
         style = "bright-white";
         disabled = false;
