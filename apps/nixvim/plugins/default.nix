@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   imports = [
     ./nvim-autopairs.nix
@@ -12,5 +10,6 @@
     ./telescope.nix
     ./vim-tmux-navigator.nix
     ./indent-blankline.nix
+    ./nvim-colorizer.nix
   ];
 }
