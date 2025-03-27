@@ -10,6 +10,8 @@
         on_highlights = ''
           function(highlights, colors)
             highlights.LineNr = { fg = "#ffffff" }
+            highlights.LineNrBelow = { fg = "#858585" }
+            highlights.LineNrAbove = { fg = "#858585" }
           end
         '';
       };

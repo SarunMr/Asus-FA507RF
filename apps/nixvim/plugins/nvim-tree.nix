@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   programs.nixvim = {
     plugins.web-devicons.enable = true;
@@ -38,6 +36,12 @@
           "TelescopePromptNormal",
           "TelescopeResultsTitle",
           "TelescopePreviewTitle",
+          --VimBeGood
+          "VimBeGoodNormal",       -- Main background for the game window
+          "VimBeGoodBorder",       -- Border around the game UI
+          "VimBeGoodPrompt",       -- Prompt or instruction text area
+          "VimBeGoodSelection",    -- Highlighted selection or active area
+          "VimBeGoodStatusLine",
         }
 
         for _, group in ipairs(hl_groups) do

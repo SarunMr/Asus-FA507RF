@@ -10,6 +10,7 @@
     ./telescope.nix
     ./vim-tmux-navigator.nix
     ./indent-blankline.nix
+    ./mini-surround.nix
     ./nvim-colorizer.nix
   ];
 }
