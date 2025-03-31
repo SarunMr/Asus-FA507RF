@@ -35,8 +35,9 @@
       set-option -g default-shell /run/current-system/sw/bin/bash
       set-option -g default-command /run/current-system/sw/bin/bash
 
-      #Able to use mouse 
+      #Options
       set -g mouse on
+      set-option -g repeat-time 500
 
       #Pane Navigation <prefix> q to show index-numbers
       setw -g pane-base-index 1
@@ -63,6 +64,8 @@
       # Copy mode using 'v' to begin selection like Vim
       bind-key -T copy-mode-vi v send -X begin-selection
       bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "${pkgs.wl-clipboard}/bin/wl-copy"
+
+      #misc
     '';
   };
 }
