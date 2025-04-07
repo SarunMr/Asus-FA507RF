@@ -11,7 +11,7 @@
           "y!" = "actions.copy_entry_path";
         };
         skip_confirm_for_simple_edits = true;
-        view_options = { show_hidden = false; };
+        view_options = { show_hidden = true; };
         win_options = {
           concealcursor = "ncv";
           conceallevel = 3;

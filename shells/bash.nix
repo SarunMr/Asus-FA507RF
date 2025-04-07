@@ -7,7 +7,10 @@ let
     vi = "nvim";
     nano = "nvim";
     code = "nvim";
-    hm = "home-manager ";
+    hms = "home-manager switch --flake .";
+    hmg = "home-manager generations";
+    hmrg = "home-manager remove-generations";
+    up = "cd ..";
 
   };
 in {
