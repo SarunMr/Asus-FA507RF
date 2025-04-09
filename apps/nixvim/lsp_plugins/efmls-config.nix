@@ -2,7 +2,15 @@
   programs.nixvim = {
     plugins.efmls-configs = {
       enable = true;
-      setup = { nix.linter = [ "statix" ]; };
+      setup = {
+        nix.linter = [ "statix" ];
+        css.linter = [ "stylelint" ];
+        javascript.linter = [ "eslint" "eslint_d" ];
+        typescript.linter = [ "eslint" "eslint_d" ];
+        dart.linter = [ "dartanalyzer" ];
+        python.linter = [ "pylint" "flake8" ];
+      };
+      externallyManagedPackages = ["dartanalyzer"];
     };
   };
 }

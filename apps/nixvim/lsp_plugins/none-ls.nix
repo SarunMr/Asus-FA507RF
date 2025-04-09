@@ -1,15 +1,10 @@
-{ ... }:
-
 {
   programs.nixvim = {
     plugins.lsp-format.enable = true;
     plugins.none-ls = {
       enable = true;
       sources = {
-        diagnostics = {
-          statix.enable = true;
-
-        };
+        diagnostics = { checkstyle.enable = true; };
         formatting = {
           clang_format.enable = true;
           black.enable = true;

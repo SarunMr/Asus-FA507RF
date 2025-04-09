@@ -8,7 +8,19 @@
         nixd.enable = true;
         bashls.enable = true;
         clangd.enable = true;
-
+        efm = {
+          enable = true;
+          filetypes = [
+            "sh"
+            "python"
+            "markdown"
+            "yaml"
+            "json"
+            "javascript"
+            "typescript"
+            "css" # Non-Java filetypes
+          ];
+        };
         #Web Devlopment
         html.enable = true;
         cssls.enable = true;
