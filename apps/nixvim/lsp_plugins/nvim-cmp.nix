@@ -1,8 +1,9 @@
-{ ... }: {
+{
   programs.nixvim = {
     plugins = {
       #dependencies
       luasnip.enable = true;
+      lspkind.enable = true; # Edits inside settings.formatting.format
       cmp_luasnip.enable = true;
       cmp-path.enable = true;
       cmp-buffer.enable = true;
@@ -16,11 +17,26 @@
               require('luasnip').lsp_expand(args.body)
             end
           '';
+          completion.keyword_length = 2;
           sources = [
-            { name = "luasnip"; }
-            { name = "nvim_lsp"; }
-            { name = "buffer"; }
-            { name = "path"; }
+            {
+              name = "luasnip";
+              priority = 1000;
+              keyword_length = 1;
+            }
+            {
+              name = "nvim_lsp";
+              priority = 850;
+              keyword_length = 2;
+            }
+            {
+              name = "buffer";
+              priority = 500;
+            }
+            {
+              name = "path";
+              priority = 450;
+            }
           ];
           mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
@@ -32,29 +48,6 @@
             "<Tab>" = "cmp.mapping.select_next_item()";
           };
           performance.max_view_entries = 15;
-          completion.keyword_length = 2;
-          formatting = {
-            format = ''
-              function(entry, vim_item)
-                -- Set maximum width for item
-                local label = vim_item.abbr
-                local truncated_label = vim.fn.strcharpart(label, 0, 50)
-                if truncated_label ~= label then
-                  vim_item.abbr = truncated_label .. "..."
-                end
-                
-                -- Source names
-                vim_item.menu = ({
-                  nvim_lsp = "[LSP]",
-                  luasnip = "[Snippet]",
-                  buffer = "[Buffer]",
-                  path = "[Path]",
-                })[entry.source.name]
-                
-                return vim_item
-              end
-            '';
-          };
           sorting = {
             comparators = [
               "require('cmp.config.compare').offset"

@@ -6,7 +6,10 @@
     plugins.none-ls = {
       enable = true;
       sources = {
-        diagnostics = { statix.enable = true; };
+        diagnostics = {
+          statix.enable = true;
+
+        };
         formatting = {
           clang_format.enable = true;
           black.enable = true;

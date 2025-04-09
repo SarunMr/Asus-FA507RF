@@ -1,5 +1,5 @@
-{ ... }:
+{ unstablePkgs, ... }:
 
 {
-  programs.zed-editor = { enable = true; };
+  home.packages = with unstablePkgs; [ zed-editor ];
 }
