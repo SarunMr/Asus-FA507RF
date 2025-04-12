@@ -2,9 +2,13 @@
 
 {
   programs.nixvim = {
-    plugins.nvim-jdtls = {
+    plugins.jdtls = {
       enable = true;
-      data = "${config.home.homeDirectory}/.cache/jdtls/workspace";
+      settings.cmd = [
+        "jdtls"
+        "-data"
+        "${config.home.homeDirectory}/.cache/jdtls/workspace"
+      ];
     };
   };
   home.activation.createJdtlsWorkspace =
