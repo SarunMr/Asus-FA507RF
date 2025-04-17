@@ -8,9 +8,8 @@
         javascript.linter = [ "eslint" "eslint_d" ];
         typescript.linter = [ "eslint" "eslint_d" ];
         dart.linter = [ "dartanalyzer" ];
-        python.linter = [ "pylint" "flake8" ];
       };
-      externallyManagedPackages = ["dartanalyzer"];
+      externallyManagedPackages = [ "dartanalyzer" ];
     };
   };
 }

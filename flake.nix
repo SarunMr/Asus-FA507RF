@@ -4,7 +4,8 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Add unstable packages
+    nixpkgs-unstable.url =
+      "github:nixos/nixpkgs/nixos-unstable"; # Add unstable packages
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -19,7 +20,8 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
-      pkgsUnstable = nixpkgs-unstable.legacyPackages.${system}; # Extract unstable packages
+      pkgsUnstable =
+        nixpkgs-unstable.legacyPackages.${system}; # Extract unstable packages
     in {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
@@ -28,7 +30,8 @@
             ./configuration.nix
             {
               nixpkgs.config.allowUnfree = true; # Allow unfree packages
-              _module.args.unstablePkgs = pkgsUnstable; # Pass unstablePkgs to NixOS config
+              _module.args.unstablePkgs =
+                pkgsUnstable; # Pass unstablePkgs to NixOS config
             }
           ];
         };
@@ -40,7 +43,8 @@
           ./home.nix
           nixvim.homeManagerModules.nixvim
           {
-            _module.args.unstablePkgs = pkgsUnstable; # Pass unstablePkgs to Home Manager
+            _module.args.unstablePkgs =
+              pkgsUnstable; # Pass unstablePkgs to Home Manager
           }
         ];
       };

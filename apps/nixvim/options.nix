@@ -19,9 +19,7 @@
       smartindent = true;
       autoindent = true;
 
-      # Line wrapping
-      wrap = false;
-
+      # Line wrapping wrap = false;
       # Search
       ignorecase = true;
       smartcase = true;
@@ -65,6 +63,8 @@
           vim.cmd("silent! lcd %:p:h")
         end
       })
+      --
+      vim.diagnostic.config( {virtual_text= true})
 
     '';
   };

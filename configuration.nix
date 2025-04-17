@@ -93,24 +93,28 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs;
-    [
-      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      #  wget
-      kitty
-      wofi
-      fastfetch
-      waybar
-      hyprpaper
-      hyprshot
-      wl-clipboard
-      home-manager
-      brave
-      jdk23 # java
-      gcc14 # c c++
-      asusctl
-      vlc
-    ] ++ (with unstablePkgs; [ neovim ]);
+  environment = {
+    systemPackages = with pkgs;
+      [
+        kitty
+        wofi
+        fastfetch
+        waybar
+        hyprpaper
+        hyprshot
+        wl-clipboard
+        home-manager
+        brave
+        jdk23 # java runtime
+        gcc14 # c c++ runtime
+        asusctl # hardware support for my laptop
+        vlc
+        android-studio
+      ] ++ (with unstablePkgs; [ neovim ]); # for latest applications
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1"; # Forces Wayland for compatible apps
+    };
+  };
 
   fonts.packages = with pkgs;
     [ (nerdfonts.override { fonts = [ "Hack" "CascadiaCode" ]; }) ];
