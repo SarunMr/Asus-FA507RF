@@ -127,11 +127,34 @@
   #   enableSSHSupport = true;
   # };
 
+  #always use amdgpu during startup and 
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
+  #Graphic Options
+  hardware = {
+    graphics = { enable = true; }; # opengl enable
+    nvidia = {
+      open = true;
+      nvidiaSettings = true;
+      modesetting.enable = true; # Required for Wayland
+      powerManagement.enable = true; # Helps with power saving
+      package =
+        config.boot.kernelPackages.nvidiaPackages.stable; # Use stable drivers
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true; # Allows `nvidia-offload` command
+        };
+        # Bus IDs for your GPUs (update these after Step 3)
+        amdgpuBusId = "PCI:5:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
