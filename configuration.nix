@@ -1,6 +1,5 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { unstablePkgs, config, pkgs, ... }:
 
 {
@@ -11,14 +10,11 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.configurationLimit = 3;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  ###########################
-  #      Networking         #
+  # networking.proxy.default = "http://user:password@proxy:port/"; networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain"; ########################## Networking         #
   ###########################
   networking = {
     hostName = "nixos";
@@ -127,12 +123,10 @@
   #   enableSSHSupport = true;
   # };
 
-  #always use amdgpu during startup and 
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
+  services.xserver.videoDrivers = [ "nvidia" ];
   services.openssh.enable = true;
   #Graphic Options
   hardware = {
@@ -149,7 +143,6 @@
           enable = true;
           enableOffloadCmd = true; # Allows `nvidia-offload` command
         };
-        # Bus IDs for your GPUs (update these after Step 3)
         amdgpuBusId = "PCI:5:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
