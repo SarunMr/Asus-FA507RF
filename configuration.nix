@@ -92,12 +92,15 @@
   environment = {
     systemPackages = with pkgs;
       [
-        kitty
-        wofi
-        fastfetch
+        #hyprland utils pkgs
         waybar
         hyprpaper
         hyprshot
+        hyprpicker
+
+        kitty
+        wofi
+        fastfetch
         wl-clipboard
         home-manager
         brave
@@ -106,6 +109,7 @@
         asusctl # hardware support for my laptop
         vlc
         android-studio
+
       ] ++ (with unstablePkgs; [ neovim ]); # for latest applications
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # Forces Wayland for compatible apps
