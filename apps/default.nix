@@ -1,7 +1,1 @@
-{...}:
-{
-  imports = [
-    ./zed-editor
-    ./nixvim
-  ];
-}
+{ ... }: { imports = [ ./zed-editor ./nixvim ./office-suite ]; }
