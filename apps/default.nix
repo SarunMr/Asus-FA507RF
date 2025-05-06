@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./zed-editor ./nixvim ./office-suite ]; }
+{ ... }: { imports = [ ./zed-editor ./nixvim ./office-suite ./figma ]; }
