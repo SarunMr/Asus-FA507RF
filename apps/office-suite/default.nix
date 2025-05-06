@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = with pkgs; [ onlyoffice-desktopeditors ]; }
+{ pkgs, ... }: { home.packages = with pkgs; [ libreoffice ]; }
