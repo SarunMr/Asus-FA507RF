@@ -12,5 +12,6 @@
     ./indent-blankline.nix
     ./mini-surround.nix
     ./nvim-colorizer.nix
+    ./image.nix
   ];
 }
