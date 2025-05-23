@@ -97,6 +97,7 @@
         hyprpaper
         hyprshot
         hyprpicker
+        hyprlock
 
         kitty
         wofi

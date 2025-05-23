@@ -38,6 +38,7 @@
       #Options
       set -g mouse on
       set-option -g repeat-time 500
+      set -g allow-passthrough on
 
       #Pane Navigation <prefix> q to show index-numbers
       setw -g pane-base-index 1
