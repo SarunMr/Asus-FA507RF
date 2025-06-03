@@ -8,6 +8,7 @@
         nixd.enable = true;
         bashls.enable = true;
         clangd.enable = true;
+        tailwindcss.enable = true;
         efm = {
           enable = true;
           filetypes = [
@@ -26,6 +27,7 @@
         cssls.enable = true;
         ts_ls.enable = true;
         eslint.enable = true;
+        emmet_ls.enable = true;
       };
       keymaps.lspBuf = {
         "gd" = "definition";
