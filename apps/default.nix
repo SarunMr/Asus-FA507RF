@@ -1,1 +1,9 @@
-{ ... }: { imports = [ ./zed-editor ./nixvim ./office-suite ./figma ]; }
+{ ... }: {
+  imports = [
+    ./zed-editor
+    ./nixvim
+    # Dont need this (Un-comment to install)
+    # ./office-suite 
+    # ./figma
+  ];
+}
