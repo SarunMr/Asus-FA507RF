@@ -19,14 +19,13 @@ in {
     enableCompletion = true;
     shellAliases = myalias;
     initExtra = ''
-            # Conditional guard for Bash-only features
-              eval "$(zoxide init bash)"  
       if [ -n "$BASH_VERSION" ]; then
           shopt -s progcomp
           set -o vi
       fi
     '';
   };
+  programs.zoxide.enable = true;
   home.sessionVariables = {
     EDITOR = "nvim"; # Set default editor
   };

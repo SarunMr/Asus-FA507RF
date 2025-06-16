@@ -54,7 +54,7 @@
     package = unstablePkgs.postgresql;
 
   };
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   # services.xserver.libinput.enable = true;
@@ -86,6 +86,7 @@
       [
         #hyprland utils pkgs
         waybar
+        hypridle
         hyprpaper
         hyprshot
         hyprpicker
@@ -101,7 +102,6 @@
         gcc14 # c c++ runtime
         asusctl # hardware support for my laptop
         vlc
-        android-studio
 
       ] ++ (with unstablePkgs; [ neovim ]); # for latest applications
     sessionVariables = {
@@ -109,8 +109,7 @@
     };
   };
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "Hack" "CascadiaCode" ]; }) ];
+  fonts.packages = with pkgs; [ nerd-fonts.hack nerd-fonts.caskaydia-cove ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
