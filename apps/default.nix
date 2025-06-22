@@ -2,7 +2,7 @@
   imports = [
     ./zed-editor
     ./nixvim
-    ./postman
+    # ./postman
     # Dont need this (Un-comment to install)
     # ./office-suite 
     # ./figma

@@ -97,6 +97,7 @@
         fastfetch
         wl-clipboard
         home-manager
+        postman
         brave
         jdk23 # java runtime
         gcc14 # c c++ runtime

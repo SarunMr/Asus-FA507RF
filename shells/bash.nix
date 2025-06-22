@@ -1,5 +1,4 @@
 let
-
   myalias = {
     sudo = "sudo ";
     cls = "clear";
@@ -16,6 +15,7 @@ let
 in {
   programs.bash = {
     enable = true;
+    blesh.enable = true;
     enableCompletion = true;
     shellAliases = myalias;
     initExtra = ''
