@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./zed-editor
+    # ./zed-editor
     ./nixvim
     # ./postman
     # Dont need this (Un-comment to install)

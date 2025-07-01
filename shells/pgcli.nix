@@ -5,6 +5,7 @@
       main = {
         smart_completion = true;
         vi = true;
+        keyring = false;
       };
     };
   };
