@@ -1,1 +1,1 @@
-{ imports = [ ./python.nix ./bun.nix ]; }
+{ imports = [ ./python.nix ./bun.nix ./rlanguage.nix ]; }

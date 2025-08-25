@@ -21,13 +21,11 @@
     networkmanager.enable = true;
     firewall.allowedTCPPorts = [ 443 ]; # Allow HTTPS traffic
   };
-
   # Set your time zone.
   time.timeZone = "Asia/Kathmandu";
   time.hardwareClockInLocalTime = true;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  # Select internationalisation properties. i18n.defaultLocale = "en_US.UTF-8";
 
   services.xserver.enable = true;
   services.displayManager.sddm = { enable = true; };
@@ -55,6 +53,8 @@
     package = unstablePkgs.postgresql;
 
   };
+
+  services.mongodb.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
@@ -99,11 +99,13 @@
         wl-clipboard
         home-manager
         postman
+        mongosh
         brave
         jdk23 # java runtime
         gcc14 # c c++ runtime
         asusctl # hardware support for my laptop
         vlc
+        obs-studio
 
       ] ++ (with unstablePkgs; [ neovim ]); # for latest applications
     sessionVariables = {

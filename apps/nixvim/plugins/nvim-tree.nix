@@ -4,7 +4,7 @@
     # Enable nvim-tree plugin
     plugins.nvim-tree = {
       enable = true;
-      view = { side = "right"; };
+      settings = { view = { side = "right"; }; };
       # Your existing nvim-tree config (if any)
     };
 

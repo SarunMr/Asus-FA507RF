@@ -41,7 +41,7 @@
         inherit pkgs;
         modules = [
           ./home.nix
-          nixvim.homeManagerModules.nixvim
+          nixvim.homeModules.nixvim
           {
             _module.args.unstablePkgs =
               pkgsUnstable; # Pass unstablePkgs to Home Manager
